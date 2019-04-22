@@ -1,0 +1,14 @@
+<% if @user %>
+  <% unless @user.valid? %>
+    error
+  <% end %>
+
+  <% if @user.valid? %>
+    successfully created user named : <%= @user.name %>
+  <% end %>
+<% end %>
+
+<%= form_for User.new do |f| %>
+  Your Name: <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
